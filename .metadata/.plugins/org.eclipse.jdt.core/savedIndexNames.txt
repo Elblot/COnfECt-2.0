@@ -1,0 +1,19 @@
+INDEX VERSION 1.130+/home/elliott/Bureau/Stage/github/COnfECt/.metadata/.plugins/org.eclipse.jdt.core
+356759184.index
+864993850.index
+775951874.index
+1130421552.index
+2849516547.index
+2741781741.index
+2890779683.index
+2599967352.index
+2624870173.index
+3708320838.index
+3022409503.index
+1721215918.index
+2032848791.index
+621050117.index
+789077783.index
+298321650.index
+709006970.index
+3984594933.index

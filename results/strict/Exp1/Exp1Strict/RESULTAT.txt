@@ -1,0 +1,49 @@
+C7.dot contient :
+18 états
+19 transitions
+
+C10.dot contient :
+6 états
+5 transitions
+
+C9.dot contient :
+19 états
+22 transitions
+
+C2.dot contient :
+26 états
+38 transitions
+
+C8.dot contient :
+10 états
+10 transitions
+
+C3.dot contient :
+18 états
+19 transitions
+
+C1.dot contient :
+4 états
+3 transitions
+
+C6.dot contient :
+12 états
+12 transitions
+
+C4.dot contient :
+12 états
+11 transitions
+
+C5.dot contient :
+27 états
+30 transitions
+
+--------------------------------
+TOTAL :
+152 States
+169 Transitions
+Correlation Duration: 38 ms
+Clustering Duration: 72 ms
+KTail Duration: 46 ms
+Parser Duration: 2543 ms
+Program Duration: 2713 ms

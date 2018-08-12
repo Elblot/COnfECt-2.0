@@ -1,0 +1,13 @@
+C1.dot contient :
+18 états
+34 transitions
+
+--------------------------------
+TOTAL :
+18 States
+34 Transitions
+Correlation Duration: 22 ms
+Clustering Duration: 88 ms
+KTail Duration: 19 ms
+Parser Duration: 359 ms
+Program Duration: 502 ms

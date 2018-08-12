@@ -1,0 +1,235 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S8[label=S8,shape=circle];
+S9[label=S9,shape=circle];
+S10[label=S10,shape=circle];
+S11[label=S11,shape=doublecircle];
+S12[label=S12,shape=circle];
+S13[label=S13,shape=circle];
+S14[label=S14,shape=circle];
+S15[label=S15,shape=circle];
+S16[label=S16,shape=circle];
+S17[label=S17,shape=circle];
+S18[label=S18,shape=circle];
+S19[label=S19,shape=circle];
+S20[label=S20,shape=circle];
+S21[label=S21,shape=circle];
+S22[label=S22,shape=circle];
+S23[label=S23,shape=circle];
+S24[label=S24,shape=circle];
+S25[label=S25,shape=circle];
+S26[label=S26,shape=circle];
+S27[label=S27,shape=circle];
+S28[label=S28,shape=circle];
+S29[label=S29,shape=circle];
+S30[label=S30,shape=circle];
+S31[label=S31,shape=circle];
+S32[label=S32,shape=circle];
+S33[label=S33,shape=circle];
+S34[label=S34,shape=circle];
+S35[label=S35,shape=circle];
+S36[label=S36,shape=circle];
+S37[label=S37,shape=circle];
+S38[label=S38,shape=circle];
+S39[label=S39,shape=circle];
+S40[label=S40,shape=circle];
+"S1'"[label="S1'",shape=circle];
+"S2'"[label="S2'",shape=circle];
+"S3'"[label="S3'",shape=circle];
+"S4'"[label="S4'",shape=circle];
+"S5'"[label="S5'",shape=circle];
+"S6'"[label="S6'",shape=circle];
+"S7'"[label="S7'",shape=circle];
+"S8'"[label="S8'",shape=circle];
+"S9'"[label="S9'",shape=circle];
+"S10'"[label="S10'",shape=circle];
+"S11'"[label="S11'",shape=circle];
+"S12'"[label="S12'",shape=circle];
+"S13'"[label="S13'",shape=circle];
+"S14'"[label="S14'",shape=circle];
+"S15'"[label="S15'",shape=circle];
+"S16'"[label="S16'",shape=circle];
+"S17'"[label="S17'",shape=circle];
+"S18'"[label="S18'",shape=circle];
+"S19'"[label="S19'",shape=circle];
+"S20'"[label="S20'",shape=circle];
+"S21'"[label="S21'",shape=circle];
+"S22'"[label="S22'",shape=circle];
+"S23'"[label="S23'",shape=circle];
+"S24'"[label="S24'",shape=circle];
+"S25'"[label="S25'",shape=circle];
+"S26'"[label="S26'",shape=circle];
+"S27'"[label="S27'",shape=circle];
+"S28'"[label="S28'",shape=circle];
+"S29'"[label="S29'",shape=circle];
+"S30'"[label="S30'",shape=circle];
+"S31'"[label="S31'",shape=circle];
+"S32'"[label="S32'",shape=circle];
+"S33'"[label="S33'",shape=circle];
+"S34'"[label="S34'",shape=circle];
+"S35'"[label="S35'",shape=circle];
+"S36'"[label="S36'",shape=circle];
+"S37'"[label="S37'",shape=circle];
+"S38'"[label="S38'",shape=circle];
+"S39'"[label="S39'",shape=circle];
+"S40'"[label="S40'",shape=circle];
+S00 -> S1
+S1 -> S2[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S1 -> S4[label ="call_C1"];
+S1 -> S4[label ="?/config(ProtocolVerb;Host;Dest;Uri)"];
+S1 -> S8[label ="call_C1"];
+S1 -> S12[label ="?/devices(ProtocolVerb;Host;Dest;Uri)"];
+S1 -> S14[label ="call_C1"];
+S1 -> S15[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S1 -> S17[label ="call_C1"];
+S1 -> S19[label ="call_C1"];
+S1 -> S23[label ="call_C1"];
+S1 -> S26[label ="call_C1"];
+S1 -> S27[label ="call_C1"];
+S1 -> S35[label ="call_C1"];
+S1 -> S40[label ="call_C1"];
+S2 -> S3[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S2 -> S22[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S3 -> S2[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S3 -> S4[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S3 -> S8[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S3 -> S10[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S4 -> S5[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S4 -> S16[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S5 -> S2[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S5 -> S6[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S5 -> S8[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S5 -> S10[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S5 -> S30[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S6 -> S7[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S7 -> S8[label ="?/devices(ProtocolVerb;Host;Dest;Uri;index;page;taskdevicenumber;taskdevicename;taskdevicetimer;taskdeviceid;taskdevicepin14;plugin_005_dhttype;taskdevicesenddata;taskdeviceformula1;%25value%25-7taskdevicevaluedecimals1;taskdeviceformula2;%25value%25%2B14taskdevicevaluedecimals2;taskdevicevaluename1;taskdevicevaluename2;edit;page)"];
+S8 -> S9[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S8 -> S39[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S9 -> S10[label ="?/devices(ProtocolVerb;Host;Dest;Uri)"];
+S9 -> S12[label ="?/devices(ProtocolVerb;Host;Dest;Uri)"];
+S9 -> S32[label ="?/devices(ProtocolVerb;Host;Dest;Uri)"];
+S10 -> S11[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S12 -> S13[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S12 -> S21[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S13 -> S14[label ="?/hardware(ProtocolVerb;Host;Dest;Uri)"];
+S13 -> S19[label ="?/hardware(ProtocolVerb;Host;Dest;Uri)"];
+S14 -> S15[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S15 -> S4[label ="?/config(ProtocolVerb;Host;Dest;Uri)"];
+S15 -> S26[label ="?/config(ProtocolVerb;Host;Dest;Uri)"];
+S15 -> S28[label ="?/config(ProtocolVerb;Host;Dest;Uri)"];
+S16 -> S11[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S17 -> S18[label ="?/wifiscanner(ProtocolVerb;Host;Dest;Uri)"];
+S18 -> S19[label ="?/wifiscanner(ProtocolVerb;Host;Dest;Uri)"];
+S19 -> S20[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S20 -> S11[label ="return_C1"];
+S21 -> S20[label ="?/hardware(ProtocolVerb;Host;Dest;Uri)"];
+S22 -> S20[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S23 -> S8[label ="?/devices(ProtocolVerb;Host;Dest;Uri;index;page)"];
+S23 -> S24[label ="?/devices(ProtocolVerb;Host;Dest;Uri;index;page)"];
+S23 -> S33[label ="?/devices(ProtocolVerb;Host;Dest;Uri;index;page)"];
+S24 -> S25[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S25 -> S14[label ="?/devices(ProtocolVerb;Host;Dest;Uri;setpage)"];
+S26 -> S27[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S27 -> S20[label ="?/(ProtocolVerb;Host;Dest;Uri)"];
+S28 -> S29[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S29 -> S4[label ="?/config(ProtocolVerb;Host;Dest;Uri;name;password;ssid;apkey;unit;protocol;usedns;controllerip;controllerport;controlleruser;controllerpassword;delay;espip;espgateway;espsubnet;espdns)"];
+S30 -> S31[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S31 -> S19[label ="?/update(ProtocolVerb;Host;Dest;Uri)"];
+S32 -> S23[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S33 -> S34[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S34 -> S8[label ="?/devices(ProtocolVerb;Host;Dest;Uri;index;page;taskdevicenumber;taskdevicename;taskdeviceid;taskdevicepin1;edit;page)"];
+S35 -> S8[label ="?/login(ProtocolVerb;Host;Dest;Uri)"];
+S35 -> S36[label ="?/login(ProtocolVerb;Host;Dest;Uri)"];
+S36 -> S37[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S37 -> S38[label ="?/favicon.ico(ProtocolVerb;Host;Dest;Uri)"];
+S38 -> S35[label ="?/favicon.ico(ProtocolVerb;Host;Dest;Uri)"];
+S39 -> S20[label ="?/devices(ProtocolVerb;Host;Dest;Uri)"];
+S40 -> S26[label ="?/login(ProtocolVerb;Host;Dest;Uri;password)"];
+S1 -> "S1'"[label ="call_C"]
+"S1'" -> S1[label ="return_C"]
+S2 -> "S2'"[label ="call_C"]
+"S2'" -> S2[label ="return_C"]
+S3 -> "S3'"[label ="call_C"]
+"S3'" -> S3[label ="return_C"]
+S4 -> "S4'"[label ="call_C"]
+"S4'" -> S4[label ="return_C"]
+S5 -> "S5'"[label ="call_C"]
+"S5'" -> S5[label ="return_C"]
+S6 -> "S6'"[label ="call_C"]
+"S6'" -> S6[label ="return_C"]
+S7 -> "S7'"[label ="call_C"]
+"S7'" -> S7[label ="return_C"]
+S8 -> "S8'"[label ="call_C"]
+"S8'" -> S8[label ="return_C"]
+S9 -> "S9'"[label ="call_C"]
+"S9'" -> S9[label ="return_C"]
+S10 -> "S10'"[label ="call_C"]
+"S10'" -> S10[label ="return_C"]
+S11 -> "S11'"[label ="call_C"]
+"S11'" -> S11[label ="return_C"]
+S12 -> "S12'"[label ="call_C"]
+"S12'" -> S12[label ="return_C"]
+S13 -> "S13'"[label ="call_C"]
+"S13'" -> S13[label ="return_C"]
+S14 -> "S14'"[label ="call_C"]
+"S14'" -> S14[label ="return_C"]
+S15 -> "S15'"[label ="call_C"]
+"S15'" -> S15[label ="return_C"]
+S16 -> "S16'"[label ="call_C"]
+"S16'" -> S16[label ="return_C"]
+S17 -> "S17'"[label ="call_C"]
+"S17'" -> S17[label ="return_C"]
+S18 -> "S18'"[label ="call_C"]
+"S18'" -> S18[label ="return_C"]
+S19 -> "S19'"[label ="call_C"]
+"S19'" -> S19[label ="return_C"]
+S20 -> "S20'"[label ="call_C"]
+"S20'" -> S20[label ="return_C"]
+S21 -> "S21'"[label ="call_C"]
+"S21'" -> S21[label ="return_C"]
+S22 -> "S22'"[label ="call_C"]
+"S22'" -> S22[label ="return_C"]
+S23 -> "S23'"[label ="call_C"]
+"S23'" -> S23[label ="return_C"]
+S24 -> "S24'"[label ="call_C"]
+"S24'" -> S24[label ="return_C"]
+S25 -> "S25'"[label ="call_C"]
+"S25'" -> S25[label ="return_C"]
+S26 -> "S26'"[label ="call_C"]
+"S26'" -> S26[label ="return_C"]
+S27 -> "S27'"[label ="call_C"]
+"S27'" -> S27[label ="return_C"]
+S28 -> "S28'"[label ="call_C"]
+"S28'" -> S28[label ="return_C"]
+S29 -> "S29'"[label ="call_C"]
+"S29'" -> S29[label ="return_C"]
+S30 -> "S30'"[label ="call_C"]
+"S30'" -> S30[label ="return_C"]
+S31 -> "S31'"[label ="call_C"]
+"S31'" -> S31[label ="return_C"]
+S32 -> "S32'"[label ="call_C"]
+"S32'" -> S32[label ="return_C"]
+S33 -> "S33'"[label ="call_C"]
+"S33'" -> S33[label ="return_C"]
+S34 -> "S34'"[label ="call_C"]
+"S34'" -> S34[label ="return_C"]
+S35 -> "S35'"[label ="call_C"]
+"S35'" -> S35[label ="return_C"]
+S36 -> "S36'"[label ="call_C"]
+"S36'" -> S36[label ="return_C"]
+S37 -> "S37'"[label ="call_C"]
+"S37'" -> S37[label ="return_C"]
+S38 -> "S38'"[label ="call_C"]
+"S38'" -> S38[label ="return_C"]
+S39 -> "S39'"[label ="call_C"]
+"S39'" -> S39[label ="return_C"]
+S40 -> "S40'"[label ="call_C"]
+"S40'" -> S40[label ="return_C"]
+}

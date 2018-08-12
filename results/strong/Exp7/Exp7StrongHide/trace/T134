@@ -1,0 +1,6 @@
+call_T134
+!/json.htm(Protocol;Host;Dest;Uri;type;param;idx;switchcmd)
+call_T135
+return_T135
+?Response(Protocol;Host;Dest;status;response)
+return_T134

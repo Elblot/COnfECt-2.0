@@ -1,0 +1,41 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=doublecircle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+"S1'"[label="S1'",shape=circle];
+"S2'"[label="S2'",shape=circle];
+"S3'"[label="S3'",shape=circle];
+"S4'"[label="S4'",shape=circle];
+"S5'"[label="S5'",shape=circle];
+"S6'"[label="S6'",shape=circle];
+"S7'"[label="S7'",shape=circle];
+S00 -> S1
+S1 -> S2[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S1 -> S4[label ="call_C2"];
+S1 -> S5[label ="call_C2"];
+S1 -> S7[label ="call_C2"];
+S2 -> S3[label ="?server(Protocol;Host;Dest;mode)"];
+S4 -> S5[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S5 -> S6[label ="?server(Protocol;Host;Dest;mode)"];
+S6 -> S3[label ="return_C2"];
+S7 -> S6[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S1 -> "S1'"[label ="call_C"]
+"S1'" -> S1[label ="return_C"]
+S2 -> "S2'"[label ="call_C"]
+"S2'" -> S2[label ="return_C"]
+S3 -> "S3'"[label ="call_C"]
+"S3'" -> S3[label ="return_C"]
+S4 -> "S4'"[label ="call_C"]
+"S4'" -> S4[label ="return_C"]
+S5 -> "S5'"[label ="call_C"]
+"S5'" -> S5[label ="return_C"]
+S6 -> "S6'"[label ="call_C"]
+"S6'" -> S6[label ="return_C"]
+S7 -> "S7'"[label ="call_C"]
+"S7'" -> S7[label ="return_C"]
+}

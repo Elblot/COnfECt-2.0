@@ -1,0 +1,13 @@
+call_T126
+?/login(ProtocolVerb;Host;Dest;Uri)
+!Response(Protocol;Host;Dest;status;response;data)
+?/favicon.ico(ProtocolVerb;Host;Dest;Uri)
+?/favicon.ico(ProtocolVerb;Host;Dest;Uri)
+?/login(ProtocolVerb;Host;Dest;Uri)
+!Response(Protocol;Host;Dest;status;response;data)
+call_T127
+return_T127
+?/devices(ProtocolVerb;Host;Dest;Uri)
+call_T137
+return_T137
+return_T126

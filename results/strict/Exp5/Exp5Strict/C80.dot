@@ -1,0 +1,11 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=doublecircle];
+S00 -> S1
+S1 -> S2[label ="call_C80"];
+S2 -> S3[label ="?/(ProtocolVerb;Host;Dest;Uri)"];
+S3 -> S4[label ="return_C80"];
+}

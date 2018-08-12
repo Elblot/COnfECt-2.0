@@ -1,0 +1,71 @@
+***********COnfECt***********
+
+Introduction
+============
+
+COnfECt is a KTail-based tool that generate models of different
+components of the system, from execution traces of the general system as input.
+No information is provided to identify components. 
+It Generates a Labeled Transition System (LTS) from each components, 
+linked with call/return labels.
+We propose different strategies, leading to different generalisation levels.
+
+
+For Users
+=========
+
+Usage : MainC -d <directory> -a <algorithm> -o <destination>
+
+algorithm : weak, strong, strict
+
+Options :
+-t	show the duration of each step of the program
+-k	choose the number of k-futur (not implemented, 2 is used)
+-w	show temporal files used to make .dot files
+-c	hide call/return transitions
+
+
+Input syntax
+============
+
+Input must be a directory with files which contain events under that form :
+
+<label>(<param1>;<param2>;<param3>...)
+<label>(<param1>;<param2>;<param3>...)
+...
+
+The Mapper tool can help you to make these lines. The <param> don't contain 
+values as the Mapper do. An option of the Mapper exist for this specific
+case. 
+
+
+Correlation
+===========
+
+A Correlation Coefficient is used to evaluate the correlation of successive 
+events. In this implementation, we use a coefficient based on frequency.
+User must specify the threshold in the code.
+
+
+Synchronisation Strategies
+==========================
+
+There are 3 different strategies for 3 different generalisation levels :
+
+strict : create LTS composed of acyclic paths only in order to
+limit the over-generalisation problem.
+
+strong : it provides more over-generalised models by generating
+callable-complete LTS.
+
+weak : it aims at reducing the number of components and allows 
+repetitive component calls.
+
+
+Files generated 
+===============
+
+Many trace files are generated during the Correlation process to separate sequences of events that come from different components.
+These files are used in the Synchronisation process for Clustering of LTSs.
+Then the KTail process generates the .dot and .png files, that represente these traces.
+A RESULTAT file is also created, with statistics of every graph and global statistics.

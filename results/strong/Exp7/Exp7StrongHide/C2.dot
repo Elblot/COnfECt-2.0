@@ -1,0 +1,11 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=doublecircle];
+S00 -> S1
+S1 -> S2[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S1 -> S3[label ="?server(Protocol;Host;Dest;mode)"];
+S1 -> S3[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S2 -> S3[label ="?server(Protocol;Host;Dest;mode)"];
+}

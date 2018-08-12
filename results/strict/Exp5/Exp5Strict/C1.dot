@@ -1,0 +1,18 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=doublecircle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S00 -> S1
+S1 -> S2[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S1 -> S6[label ="?server(Protocol;Host;Dest;mode)"];
+S2 -> S3[label ="?server(Protocol;Host;Dest;mode)"];
+S3 -> S4[label ="call_C30"];
+S4 -> S5[label ="return_C30"];
+S6 -> S7[label ="call_C63"];
+S7 -> S5[label ="return_C63"];
+}

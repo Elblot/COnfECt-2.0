@@ -1,0 +1,57 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=doublecircle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S8[label=S8,shape=circle];
+S9[label=S9,shape=doublecircle];
+S10[label=S10,shape=circle];
+S11[label=S11,shape=circle];
+S12[label=S12,shape=circle];
+S13[label=S13,shape=circle];
+S14[label=S14,shape=circle];
+S15[label=S15,shape=circle];
+S16[label=S16,shape=circle];
+S17[label=S17,shape=circle];
+S18[label=S18,shape=circle];
+S19[label=S19,shape=circle];
+S20[label=S20,shape=circle];
+S21[label=S21,shape=circle];
+S00 -> S1
+S1 -> S2[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S1 -> S5[label ="call_C2"];
+S1 -> S6[label ="call_C2"];
+S1 -> S10[label ="call_C2"];
+S1 -> S19[label ="call_C2"];
+S1 -> S20[label ="call_C2"];
+S2 -> S3[label ="?server(Protocol;Host;Dest;mode)"];
+S3 -> S4[label ="call_C1"];
+S4 -> S3[label ="return_C1"];
+S5 -> S6[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S5 -> S12[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S5 -> S13[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S5 -> S16[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S6 -> S7[label ="?server(Protocol;Host;Dest;mode)"];
+S6 -> S21[label ="call_C1"];
+S7 -> S8[label ="call_C2"];
+S7 -> S9[label ="return_C2"];
+S8 -> S7[label ="return_C2"];
+S10 -> S11[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S11 -> S9[label ="return_C2"];
+S12 -> S11[label ="?server(Protocol;Host;Dest;mode)"];
+S13 -> S14[label ="?server(Protocol;Host;Dest;mode)"];
+S14 -> S9[label ="return_C2"];
+S14 -> S15[label ="call_C3"];
+S15 -> S14[label ="return_C3"];
+S16 -> S17[label ="?server(Protocol;Host;Dest;mode)"];
+S17 -> S9[label ="return_C2"];
+S17 -> S18[label ="call_C1"];
+S18 -> S17[label ="return_C1"];
+S19 -> S14[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S20 -> S6[label ="!symetric active(Protocol;Host;Dest;mode;timestamp)"];
+S21 -> S6[label ="return_C1"];
+}

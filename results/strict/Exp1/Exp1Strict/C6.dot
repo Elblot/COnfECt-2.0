@@ -1,0 +1,28 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S8[label=S8,shape=circle];
+S9[label=S9,shape=circle];
+S10[label=S10,shape=circle];
+S11[label=S11,shape=circle];
+S12[label=S12,shape=doublecircle];
+S00 -> S1
+S1 -> S2[label ="call_C6"];
+S2 -> S3[label ="?/wifiscanner(ProtocolVerb;Host;Dest;Uri)"];
+S3 -> S4[label ="?/wifiscanner(ProtocolVerb;Host;Dest;Uri)"];
+S4 -> S5[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S5 -> S4[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S5 -> S6[label ="?/log(ProtocolVerb;Host;Dest;Uri)"];
+S6 -> S7[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S7 -> S8[label ="?/tools(ProtocolVerb;Host;Dest;Uri)"];
+S8 -> S9[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S9 -> S10[label ="call_C7"];
+S10 -> S11[label ="return_C7"];
+S11 -> S12[label ="return_C6"];
+}

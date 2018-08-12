@@ -1,0 +1,19 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S8[label=S8,shape=doublecircle];
+S00 -> S1
+S1 -> S2[label ="call_C130"];
+S2 -> S3[label ="?/login(ProtocolVerb;Host;Dest;Uri;password)"];
+S3 -> S4[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S4 -> S5[label ="?/(ProtocolVerb;Host;Dest;Uri)"];
+S5 -> S6[label ="call_C131"];
+S6 -> S7[label ="return_C131"];
+S7 -> S8[label ="return_C130"];
+}

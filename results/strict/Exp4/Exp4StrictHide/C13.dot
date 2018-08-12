@@ -1,0 +1,55 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S8[label=S8,shape=circle];
+S9[label=S9,shape=circle];
+S10[label=S10,shape=circle];
+S11[label=S11,shape=circle];
+S12[label=S12,shape=circle];
+S13[label=S13,shape=circle];
+S14[label=S14,shape=circle];
+S15[label=S15,shape=circle];
+S16[label=S16,shape=circle];
+S17[label=S17,shape=circle];
+S18[label=S18,shape=circle];
+S19[label=S19,shape=circle];
+S20[label=S20,shape=circle];
+S21[label=S21,shape=circle];
+S22[label=S22,shape=circle];
+S23[label=S23,shape=doublecircle];
+S00 -> S1
+S1 -> S3[label ="?/log(Protocol;Verb;Host;Dest;Uri)"];
+S2 -> S3[label ="?/log(Protocol;Verb;Host;Dest;Uri)"];
+S3 -> S1[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S3 -> S2[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S3 -> S4[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S4 -> S5[label ="?/log(Protocol;Verb;Host;Dest;Uri)"];
+S5 -> S6[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S6 -> S7[label ="?/(Protocol;Verb;Host;Dest;Uri)"];
+S7 -> S8[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S8 -> S9[label ="?/tools(Protocol;Verb;Host;Dest;Uri)"];
+S8 -> S22[label ="?/tools(Protocol;Verb;Host;Dest;Uri)"];
+S9 -> S10[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S10 -> S15[label ="?/devices(Protocol;Verb;Host;Dest;Uri)"];
+S10 -> S18[label ="?/devices(Protocol;Verb;Host;Dest;Uri)"];
+S11 -> S12[label ="?/devices(Protocol;Verb;Host;Dest;Uri;index;page)"];
+S12 -> S13[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S13 -> S17[label ="?/devices(Protocol;Verb;Host;Dest;Uri;index;page;taskdevicenumber;taskdevicename;taskdeviceid;taskdevicepin1;edit;page)"];
+S14 -> S15[label ="?/devices(Protocol;Verb;Host;Dest;Uri)"];
+S15 -> S11[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S15 -> S16[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S16 -> S17[label ="?/devices(Protocol;Verb;Host;Dest;Uri;index;page)"];
+S17 -> S10[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S17 -> S14[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S18 -> S19[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S19 -> S20[label ="?/hardware(Protocol;Verb;Host;Dest;Uri)"];
+S20 -> S21[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+S21 -> S7[label ="?/config(Protocol;Verb;Host;Dest;Uri)"];
+S22 -> S23[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+}

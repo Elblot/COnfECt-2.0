@@ -1,0 +1,277 @@
+C22.dot contient :
+6 états
+5 transitions
+
+C53.dot contient :
+5 états
+4 transitions
+
+C55.dot contient :
+7 états
+6 transitions
+
+C59.dot contient :
+7 états
+6 transitions
+
+C50.dot contient :
+5 états
+4 transitions
+
+C37.dot contient :
+7 états
+6 transitions
+
+C61.dot contient :
+4 états
+3 transitions
+
+C7.dot contient :
+5 états
+4 transitions
+
+C41.dot contient :
+7 états
+6 transitions
+
+C15.dot contient :
+5 états
+4 transitions
+
+C58.dot contient :
+7 états
+6 transitions
+
+C13.dot contient :
+7 états
+6 transitions
+
+C47.dot contient :
+5 états
+4 transitions
+
+C44.dot contient :
+4 états
+3 transitions
+
+C14.dot contient :
+5 états
+4 transitions
+
+C10.dot contient :
+7 états
+6 transitions
+
+C30.dot contient :
+5 états
+4 transitions
+
+C60.dot contient :
+4 états
+3 transitions
+
+C9.dot contient :
+5 états
+4 transitions
+
+C26.dot contient :
+5 états
+4 transitions
+
+C40.dot contient :
+5 états
+4 transitions
+
+C24.dot contient :
+7 états
+6 transitions
+
+C36.dot contient :
+7 états
+6 transitions
+
+C67.dot contient :
+5 états
+4 transitions
+
+C43.dot contient :
+5 états
+4 transitions
+
+C2.dot contient :
+100 états
+130 transitions
+
+C8.dot contient :
+5 états
+4 transitions
+
+C25.dot contient :
+7 états
+6 transitions
+
+C23.dot contient :
+5 états
+4 transitions
+
+C18.dot contient :
+5 états
+4 transitions
+
+C63.dot contient :
+7 états
+6 transitions
+
+C49.dot contient :
+5 états
+4 transitions
+
+C34.dot contient :
+5 états
+4 transitions
+
+C3.dot contient :
+7 états
+6 transitions
+
+C57.dot contient :
+5 états
+4 transitions
+
+C45.dot contient :
+6 états
+5 transitions
+
+C33.dot contient :
+5 états
+4 transitions
+
+C27.dot contient :
+5 états
+4 transitions
+
+C16.dot contient :
+5 états
+4 transitions
+
+C1.dot contient :
+4 états
+3 transitions
+
+C32.dot contient :
+5 états
+4 transitions
+
+C42.dot contient :
+37 états
+46 transitions
+
+C11.dot contient :
+4 états
+3 transitions
+
+C17.dot contient :
+7 états
+6 transitions
+
+C6.dot contient :
+7 états
+6 transitions
+
+C21.dot contient :
+4 états
+3 transitions
+
+C38.dot contient :
+5 états
+4 transitions
+
+C66.dot contient :
+5 états
+4 transitions
+
+C54.dot contient :
+5 états
+4 transitions
+
+C19.dot contient :
+5 états
+4 transitions
+
+C28.dot contient :
+4 états
+3 transitions
+
+C39.dot contient :
+7 états
+6 transitions
+
+C48.dot contient :
+5 états
+4 transitions
+
+C29.dot contient :
+7 états
+6 transitions
+
+C46.dot contient :
+5 états
+4 transitions
+
+C51.dot contient :
+5 états
+4 transitions
+
+C35.dot contient :
+5 états
+4 transitions
+
+C4.dot contient :
+7 états
+6 transitions
+
+C65.dot contient :
+4 états
+3 transitions
+
+C5.dot contient :
+5 états
+4 transitions
+
+C20.dot contient :
+7 états
+6 transitions
+
+C52.dot contient :
+5 états
+4 transitions
+
+C12.dot contient :
+6 états
+5 transitions
+
+C64.dot contient :
+4 états
+3 transitions
+
+C56.dot contient :
+7 états
+6 transitions
+
+C31.dot contient :
+5 états
+4 transitions
+
+C62.dot contient :
+7 états
+6 transitions
+
+--------------------------------
+TOTAL :
+496 States
+470 Transitions
+Correlation Duration: 65 ms
+Clustering Duration: 97 ms
+KTail Duration: 70 ms
+Parser Duration: 6957 ms
+Program Duration: 7202 ms

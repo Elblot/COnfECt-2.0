@@ -1,0 +1,7 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=doublecircle];
+S00 -> S1
+S1 -> S2[label ="!Response(Protocol;Host;Dest;status;response;data)"];
+}

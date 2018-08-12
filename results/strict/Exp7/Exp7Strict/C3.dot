@@ -1,0 +1,31 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=doublecircle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=circle];
+S8[label=S8,shape=circle];
+S9[label=S9,shape=circle];
+S10[label=S10,shape=circle];
+S11[label=S11,shape=circle];
+S12[label=S12,shape=circle];
+S13[label=S13,shape=circle];
+S00 -> S1
+S1 -> S2[label ="!/json.htm(Protocol;Host;Dest;Uri;type;param;idx;svalue)"];
+S1 -> S6[label ="!/json.htm(Protocol;Host;Dest;Uri;type;param;idx;switchcmd)"];
+S1 -> S11[label ="!/json.htm(Protocol;Host;Dest;Uri;type;param;idx;svalue)"];
+S2 -> S3[label ="?Response(Protocol;Host;Dest;status;response)"];
+S3 -> S4[label ="call_C47"];
+S4 -> S5[label ="return_C47"];
+S6 -> S7[label ="call_C62"];
+S7 -> S8[label ="return_C62"];
+S8 -> S9[label ="?Response(Protocol;Host;Dest;status;response)"];
+S9 -> S10[label ="call_C64"];
+S10 -> S5[label ="return_C64"];
+S11 -> S12[label ="?Response(Protocol;Host;Dest;status;response)"];
+S12 -> S13[label ="call_C123"];
+S13 -> S5[label ="return_C123"];
+}

@@ -1,0 +1,17 @@
+call_T62
+?/devices(ProtocolVerb;Host;Dest;Uri;index;page)
+call_T63
+return_T63
+!Response(Protocol;Host;Dest;status;response;data)
+?/devices(ProtocolVerb;Host;Dest;Uri;setpage)
+call_T65
+return_T65
+!Response(Protocol;Host;Dest;status;response;data)
+?/config(ProtocolVerb;Host;Dest;Uri)
+call_T67
+return_T67
+!Response(Protocol;Host;Dest;status;response;data)
+?/(ProtocolVerb;Host;Dest;Uri)
+call_T68
+return_T68
+return_T62

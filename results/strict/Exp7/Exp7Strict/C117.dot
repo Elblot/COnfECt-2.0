@@ -1,0 +1,17 @@
+digraph LTS {
+S00[shape=point]
+S1[label=S1,shape=circle];
+S2[label=S2,shape=circle];
+S3[label=S3,shape=circle];
+S4[label=S4,shape=circle];
+S5[label=S5,shape=circle];
+S6[label=S6,shape=circle];
+S7[label=S7,shape=doublecircle];
+S00 -> S1
+S1 -> S2[label ="call_C117"];
+S2 -> S3[label ="!/json.htm(Protocol;Host;Dest;Uri;type;param;idx;svalue)"];
+S3 -> S4[label ="?Response(Protocol;Host;Dest;status;response)"];
+S4 -> S5[label ="call_C118"];
+S5 -> S6[label ="return_C118"];
+S6 -> S7[label ="return_C117"];
+}

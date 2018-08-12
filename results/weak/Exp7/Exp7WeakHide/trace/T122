@@ -1,0 +1,6 @@
+call_T122
+!/json.htm(Protocol;Host;Dest;Uri;type;param;idx;svalue)
+?Response(Protocol;Host;Dest;status;response)
+call_T123
+return_T123
+return_T122
