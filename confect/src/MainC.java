@@ -31,14 +31,21 @@ public class MainC {
 		
 		//1st part : correlation
 		final long timeCor1 = System.currentTimeMillis();
-		String s = Correlation.analysis(tracesF);
+		/* if want to use correlation factor f2 (frequency) ONLY ONE FACTOR*/
+		//String s = Correlation.analysis(tracesF);
+		/* if want to use correlation factor f1 (identifier) ONLY ONE FACTOR*/
+		String s = CorrelationID.analysis(tracesF);
 		final long timeCor2 = System.currentTimeMillis();
 		
 		
 		//2nd part : clustering
 		final long timeClust1 = System.currentTimeMillis();
-		Clustering c = new Clustering(s);
-		ArrayList<ArrayList<Trace>>alTraces = c.clustering();
+		/* if want to use similarity coefficient f2' (overlap) ONLY ONE FACTOR*/
+		/*Clustering c = new Clustering(s);
+		ArrayList<ArrayList<Trace>>alTraces = c.clustering();*/
+		/* if want to use similarity coefficient f1' (identifier) ONLY ONE FACTOR*/
+		Group c = new Group(s);
+		ArrayList<ArrayList<Trace>> alTraces = c.Synchronization();
 		final long timeClust2 = System.currentTimeMillis();
 		
 		
@@ -47,12 +54,22 @@ public class MainC {
 		KTail instance = new KTail(rank, algo);
 		int i = 1;
 		for (ArrayList<Trace> traces : alTraces) {
-			FSA test = instance.transform(traces);
-			if(hide) {
-				test.hideCall();
+			if (algo.equals("strict")) {
+				FSA test = instance.transformStrict(traces);
+				if(hide) {
+					test.hideCall();
+				}
+				GenerateDOT.printDot(test, MainC.dest+"/C"+i+"tmp.dot");
+				i++;
 			}
-	    	GenerateDOT.printDot(test, MainC.dest+"/C"+i+"tmp.dot");
-	    	i++;
+			else {
+				FSA test = instance.transform(traces);
+				if(hide) {
+					test.hideCall();
+				}
+				GenerateDOT.printDot(test, MainC.dest+"/C"+i+"tmp.dot");
+				i++;
+			}
 		}
 		final long timeKTail2 = System.currentTimeMillis();
 		
