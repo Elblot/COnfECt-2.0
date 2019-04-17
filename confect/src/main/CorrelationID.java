@@ -24,7 +24,7 @@ public class CorrelationID {
 			String[] sequences = new String[0];
 			sigma = alFile.get(0)+"\n";
 			for(int i = 1; i < alFile.size(); i++) {
-				if (coefficientID(/*alFiles,*/ alFile.get(i-1), alFile.get(i)) >= seuil){ /* coefficient here */
+				if (coefficientID(alFile.get(i-1), alFile.get(i)) >= seuil){ /* coefficient here */
 					sigma = sigma + alFile.get(i) + "\n";
 				}
 				else {
@@ -163,8 +163,9 @@ public class CorrelationID {
     	return res;
     }
     
-    /* get the correlation coefficient between two events based on ID */
-    private static float coefficientID(String event1, String event2) {
+    /* get the correlation coefficient between two events based on ID,
+     *  here in the variable Host and Dest in the traces               */
+   private static float coefficientID(String event1, String event2) {
     	String Host1 = "????";
     	String Dest1 = "????";
     	String Host2 = "????";
@@ -200,35 +201,31 @@ public class CorrelationID {
     }
     
     
-    /* get the correlation coefficient between two events based on frequency */ 
-/*    private static float coefficient(ArrayList<ArrayList<String>> alFiles, String event1, String event2) {
-    	float freq1 = 0;
-    	float freq2 = 0;
-    	float freq12 = 0;
-    	String symbol1 = event1.substring(0, event1.indexOf("("));
-    	String symbol2 = event2.substring(0, event2.indexOf("("));
-    	String line;
-    		for (int i = 0; i < alFiles.size(); i++){
-    			String prec = null;
-    			line = alFiles.get(i).get(0);
-    			if (line == null) {
-    				break;
-    			}
-    			for(int j = 0; j < alFiles.get(i).size(); j++) {
-    				line = alFiles.get(i).get(j);
-	    			line = line.substring(0, line.indexOf("("));
-					if (line.equals(symbol1)){
-						freq1++;
-					}
-					if(prec != null && line.equals(symbol2)){
-   						if (prec.equals(symbol1)){
-							freq12++;
-						}
-   						freq2++;
-   					}
-	   				prec = line;
-				}
-			}
-    		return Math.max((freq12/freq1), (freq12/freq2));
+    /* get the correlation coefficient between two events based on ID,
+     *  here in the variable role in the traces               */
+    /*private static float coefficientID(String event1, String event2) {
+    	String role1 = "????";
+    	String role2 = "????";
+    	int h1 = event1.indexOf("role=");
+    	if (h1 != -1) {
+    		role1 = event1.substring(h1 + 5, event1.indexOf(")", h1+5));
+    	}
+    	int h2 = event2.indexOf("role=");
+    	if (h2 != -1) {
+    		role2 = event2.substring(h2 + 5, event2.indexOf(")", h2+5));
+    	}
+    	//String[] ID1 = {"192.168.13.1", "????"};
+    	//String[] ID2 = {"????", "192.168.13.1"};
+    	String[] ID1 = { role1 };
+    	String[] ID2 = { role2 };
+    	Arrays.sort(ID1);
+    	Arrays.sort(ID2);	
+    	//System.out.println(Arrays.toString(ID1) + Arrays.toString(ID2));
+    	//System.out.println(Arrays.equals(ID1, ID2)+ "\n");    	
+    	if (Arrays.equals(ID1, ID2)) {
+    		return 1;
+    	}
+    	return 0;
     }*/
+    
 }

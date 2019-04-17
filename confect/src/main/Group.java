@@ -135,7 +135,7 @@ public class Group {
 		return -9000;
 	}
 
-	/* get the id of a trace */
+	/* get the id of a trace, in Host and Dest in the traces */
 	public static String[] GetNumber(ArrayList<String> trace) {
 		String Host = "????";
 		String Dest = "????";
@@ -160,6 +160,28 @@ public class Group {
 		Arrays.sort(ID);
 		return ID;
 	}
+	
+
+	/* get the id, in the variable role in the traces */
+	/*public static String[] GetNumber(ArrayList<String> trace) {
+		String role = "????";
+		String event = "";
+		int index = 0;
+		while (event == "") {
+			if (trace.get(index).contains("call_") || trace.get(index).contains("return_")) {
+				index++;
+			} else {
+				event = trace.get(index);
+			}
+		}
+		int h = event.indexOf("role=");
+		if (h != -1) {
+			role = event.substring(h + 5, event.indexOf(")", h + 5));
+		}
+		String[] ID = { role };
+		Arrays.sort(ID);
+		return ID;
+	}*/
 	
 	//read file to stock lines in an ArrayList.
 	public ArrayList<ArrayList<String>> addFileClust() throws Exception {

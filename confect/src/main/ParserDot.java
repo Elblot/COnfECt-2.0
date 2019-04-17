@@ -161,15 +161,15 @@ public class ParserDot {
 		}
 		
 		bw.write("S00 -> S1\n");
-		for(int i = 1; i < finalInt.size(); i++) {//i it�re sur les noms d'�tats qui existent
+		for(int i = 1; i < finalInt.size(); i++) {
 			ArrayList<String> ar = new ArrayList<String>();
-			for(int k = 3; k < atrier.length-1; k++) {//k it�re sur les lignes que doit contenir le fichier
+			for(int k = 3; k < atrier.length-1; k++) {
 				if(atrier[k].contains("S"+i+" ") || atrier[k].contains("S"+i+"[") && !atrier[k].contains(" S"+i)){
 					ar.add(atrier[k]);
 				}
 			}
-			for(int l = 0; l < finalInt.size(); l++) {//l it�re sur les noms d'�tats qui existent
-				for(int m = 0; m < ar.size(); m++) {//m it�re sur les �l�ments de l'arraylist
+			for(int l = 0; l < finalInt.size(); l++) {
+				for(int m = 0; m < ar.size(); m++) {
 					if(ar.get(m).contains("-> S"+l+"[")) {
 						bw.write(ar.get(m)+"\n");
 						this.nbTransition++;
@@ -196,11 +196,11 @@ public class ParserDot {
 	
 	public void resultat(File f) throws IOException {
 		if(!f.exists()) {
-			System.err.println("pb RESULTAT n existe pas");
+			System.err.println("pb RESULTAT doesn't exist");
 			System.exit(1);
 		}
 		BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
-		bw.write("C"+j+".dot contient :\n"+this.nbEtat+" �tats\n"+this.nbTransition+" transitions\n\n");
+		bw.write("C"+j+".dot contains :\n"+this.nbEtat+" states\n"+this.nbTransition+" transitions\n\n");
 		bw.close();
 	}
 	
