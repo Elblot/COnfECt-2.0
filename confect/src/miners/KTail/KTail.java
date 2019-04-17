@@ -24,7 +24,6 @@ package miners.KTail;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 
 import miners.FSAminer;
@@ -34,6 +33,7 @@ import traces.Trace;
 import fsa.FSA;
 import fsa.State;
 import fsa.Transition;
+import main.MainC;
 
 
 /**
@@ -120,6 +120,7 @@ public class KTail implements FSAminer{
 			thorizon.add(st);
 			callLoop.add(st);
 			i++;
+			String callstrong = "";
 			/**********************loop for the initial state*****************/
 			while (thorizon.size() < horizon +1 && i <= size) {
 				if (t.getByIndex(i).toString().contains("call") || thorizon.get(thorizon.size()-1).toString().contains("return")) {
@@ -127,6 +128,7 @@ public class KTail implements FSAminer{
 					i += 2;
 				}
 				if (!call.equals("")){
+					callstrong = call;
 					if(i < size) {
 						st=new Statement(new Method(call + "|||" + t.getByIndex(i).toString()));
 					}
@@ -150,6 +152,18 @@ public class KTail implements FSAminer{
 			if (thorizon.size() < horizon +1 && i >= size) {
 				thorizon.add(t.getByIndex(1));
 				callLoop.add(t.getByIndex(1));
+			}
+			if (MainC.algo.equals("strong")) {
+				if (!thorizon.get(1).toString().contains("call") && !callstrong.equals("")) {
+					StateNode call_node;
+					String id = callstrong.substring(4);
+					ArrayList<Statement> mergecall = new ArrayList<Statement>();
+					call_node = root.getSetStateNode(new ArrayList<Statement>(mergecall));
+					all_states.add(call_node);
+					source.addTransition(new Statement(new Method("call"   + id)), call_node);
+					call_node.addTransition(new Statement(new Method("return" + id)), source);
+				}
+				
 			}
 			/****************************************************************/
 			StateNode last_node = source;

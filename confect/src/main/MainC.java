@@ -1,3 +1,4 @@
+package main;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,7 +15,7 @@ import traces.Trace;
 
 public class MainC {
 	
-	static String algo;
+	public static String algo;
 	static int rank = 2;
 	static float coeff = (float) 0.5;
 	static String dir;
@@ -30,20 +31,20 @@ public class MainC {
 		String[] tracesF = getTraces(dir);
 		
 		//1st part : correlation
-		final long timeCor1 = System.currentTimeMillis();
-		/* if want to use correlation factor f2 (frequency) ONLY ONE FACTOR*/
+		final long timeCor1 = System.currentTimeMillis();	
+		/* if want to use correlation factor f2 (frequency) ONLY ONE FACTOR */
 		//String s = Correlation.analysis(tracesF);
-		/* if want to use correlation factor f1 (identifier) ONLY ONE FACTOR*/
+		/* if want to use correlation factor f1 (identifier) ONLY ONE FACTOR */
 		String s = CorrelationID.analysis(tracesF);
 		final long timeCor2 = System.currentTimeMillis();
 		
 		
 		//2nd part : clustering
 		final long timeClust1 = System.currentTimeMillis();
-		/* if want to use similarity coefficient f2' (overlap) ONLY ONE FACTOR*/
-		/*Clustering c = new Clustering(s);
-		ArrayList<ArrayList<Trace>>alTraces = c.clustering();*/
-		/* if want to use similarity coefficient f1' (identifier) ONLY ONE FACTOR*/
+		/* if want to use similarity coefficient f2' (overlap) ONLY ONE FACTOR */
+		//Clustering c = new Clustering(s);
+		//ArrayList<ArrayList<Trace>>alTraces = c.clustering();
+		/* if want to use similarity coefficient f1' (identifier) ONLY ONE FACTOR */
 		Group c = new Group(s);
 		ArrayList<ArrayList<Trace>> alTraces = c.Synchronization();
 		final long timeClust2 = System.currentTimeMillis();
