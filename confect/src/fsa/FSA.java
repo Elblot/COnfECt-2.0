@@ -315,7 +315,7 @@ public class FSA implements Serializable{
 					State state2 = a.get(i).getTarget();
 					ArrayList<Transition> out = state2.getSuccesseurs();
 					this.removeTransition(a.get(i));
-					if (!out.toString().contains("return")) {
+					if (!out.toString().contains("return") || main.MainC.algo.equals("strict")) {
 						this.mergeState(state1, state2);
 					}
 					else {
@@ -330,7 +330,7 @@ public class FSA implements Serializable{
 					State state2 = a.get(i).getTarget();
 					ArrayList<Transition> in = state1.getPredecesseurs();
 					this.removeTransition(a.get(i));
-					if (!in.toString().contains("call")) {
+					if (!in.toString().contains("call") || main.MainC.algo.equals("strict")) {
 						this.mergeState(state1, state2);
 					}
 					else {
