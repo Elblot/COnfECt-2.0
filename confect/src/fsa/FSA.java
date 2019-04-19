@@ -328,7 +328,7 @@ public class FSA implements Serializable{
 				if (a.get(i).toString().contains("return")) {
 					State state1 = a.get(i).getSource();
 					State state2 = a.get(i).getTarget();
-					ArrayList<Transition> in = state2.getPredecesseurs();
+					ArrayList<Transition> in = state1.getPredecesseurs();
 					this.removeTransition(a.get(i));
 					if (!in.toString().contains("call")) {
 						this.mergeState(state1, state2);

@@ -73,16 +73,35 @@ public class KTail implements FSAminer{
 		boolean mergeinit = true;
 		StateNode source=new StateNode();
 		all_states.add(source);
-		ArrayList<Statement> tInitial=new ArrayList<Statement>();		
+		ArrayList<Statement> tInitial=new ArrayList<Statement>();	
+		int i;
+		String call = "";	
+		String callstrong = "";	
 		/***** initial state can merge only if it have only one kfuture *****/
 		tInitial.add(traces.get(0).getByIndex(1));
+
 		if (traces.get(0).getSize() >= 2) {
-			tInitial.add(traces.get(0).getByIndex(2));
+			i=2;
+			if (traces.get(0).getByIndex(i).toString().contains("call")) {
+				call = traces.get(0).getByIndex(i).toString();
+				i += 2;
+			}	
+			if (!call.equals("")){
+				if(i < traces.get(0).getSize()) {
+					tInitial.add(new Statement(new Method(call + "|||" + traces.get(0).getByIndex(i).toString())));
+				}
+				else {
+					tInitial.add(new Statement(new Method(call + "|||")));
+				}
+			}
+			else {
+				tInitial.add(traces.get(0).getByIndex(2));
+			}
 		}
 		else {
 			tInitial.add(traces.get(0).getByIndex(1));
 		}
-		for(Trace t:traces){
+		for(Trace t:traces){			
 			int size=t.getSize();
 			if (size==0){
 				vide=true;
@@ -90,7 +109,23 @@ public class KTail implements FSAminer{
 			ArrayList<Statement> tVerif=new ArrayList<Statement>();
 			tVerif.add(t.getByIndex(1));
 			if(t.getSize() >= 2) {
-				tVerif.add(t.getByIndex(2));
+				i=2;
+				if (t.getByIndex(i).toString().contains("call")) {
+					call = t.getByIndex(i).toString();
+					i += 2;
+				}	
+				if (!call.equals("")){
+					callstrong = call;
+					if(i < traces.get(0).getSize()) {
+						tVerif.add(new Statement(new Method(call + "|||" + t.getByIndex(i).toString())));
+					}
+					else {
+						tVerif.add(new Statement(new Method(call + "|||")));
+					}
+				}
+				else {
+					tVerif.add(t.getByIndex(2));
+				}				
 			}
 			else {
 				tVerif.add(t.getByIndex(1));
@@ -102,11 +137,27 @@ public class KTail implements FSAminer{
 				break;
 			}
 		}
+		if (MainC.algo.equals("strong")) {
+			if (tInitial.size() == horizon && !tInitial.get(0).toString().contains("call") && !callstrong.equals("")) {
+				if (!tInitial.get(0).toString().contains("|||") || !tInitial.get(1).toString().contains("|||")) {
+					Statement save2 = tInitial.remove(1);
+					Statement save1 = tInitial.remove(0);
+					if (!save2.toString().contains("|||")) {
+						save2 = new Statement(new Method( callstrong + "|||" + save2.toString()));
+					}
+					if (!save1.toString().contains("|||")) {
+						save1 = new Statement(new Method( callstrong + "|||" + save1.toString()));
+					}
+					tInitial.add(save1);
+					tInitial.add(save2);
+				}
+			}
+		}
 		if (mergeinit){
 			source = root.getSetStateNode(new ArrayList<Statement>(tInitial));
 		}
 		for(Trace t:traces){
-			String call = "";
+			call = "";
 			int size=t.getSize();
 			if (size==0){
 				vide=true;
@@ -115,13 +166,13 @@ public class KTail implements FSAminer{
 			ArrayList<Statement> callLoop = new ArrayList<Statement>();
 			thorizon.add(new Statement(new Method("initKtail")));
 			callLoop.add(new Statement(new Method("initKtail")));
-			int i = 1;
+			i = 1;
 			Statement st=t.getByIndex(i);
 			thorizon.add(st);
 			callLoop.add(st);
 			i++;
-			String callstrong = "";
-			/**********************loop for the initial state*****************/
+			callstrong = "";
+			/********************loop for the initial state*****************/
 			while (thorizon.size() < horizon +1 && i <= size) {
 				if (t.getByIndex(i).toString().contains("call") || thorizon.get(thorizon.size()-1).toString().contains("return")) {
 					call = t.getByIndex(i).toString().toString();
@@ -155,15 +206,31 @@ public class KTail implements FSAminer{
 			}
 			if (MainC.algo.equals("strong")) {
 				if (!thorizon.get(1).toString().contains("call") && !callstrong.equals("")) {
+					if (!thorizon.get(1).toString().contains("|||") || !thorizon.get(2).toString().contains("|||")) {
+						Statement save2 = callLoop.remove(2);
+						Statement save1 = callLoop.remove(1);
+						if (!save2.toString().contains("|||")) {
+							save2 = new Statement(new Method( callstrong + "|||" + save2.toString()));
+						}
+						if (!save1.toString().contains("|||")) {
+							save1 = new Statement(new Method( callstrong + "|||" + save1.toString()));
+						}
+						callLoop.add(save1);
+						callLoop.add(save2);
+					}
 					StateNode call_node;
 					String id = callstrong.substring(4);
 					ArrayList<Statement> mergecall = new ArrayList<Statement>();
+					mergecall.add(new Statement(new Method("return" + id)));
+					if (mergeinit) {
+						mergecall.add(thorizon.get(1));
+					}
 					call_node = root.getSetStateNode(new ArrayList<Statement>(mergecall));
 					all_states.add(call_node);
 					source.addTransition(new Statement(new Method("call"   + id)), call_node);
 					call_node.addTransition(new Statement(new Method("return" + id)), source);
 				}
-				
+
 			}
 			/****************************************************************/
 			StateNode last_node = source;
@@ -196,7 +263,7 @@ public class KTail implements FSAminer{
 					thorizon.add(st);
 				}	
 				else {
-					thorizon.add(t.getByIndex(1));
+					thorizon.add(new Statement(new Method("|end|")));
 				}
 				Statement first=thorizon.remove(0);
 				callLoop.remove(0);
@@ -225,14 +292,11 @@ public class KTail implements FSAminer{
 			}
 			/***** cyclic: the last state merge with the initial state *****/		
 			for (int j = 1; j<=horizon;j++) {
-				if (size >= j) {
-					thorizon.add(new Statement(new Method("|")));
-					callLoop.add(new Statement(new Method("|")));
+				if (j == 1 && thorizon.get(1).toString().contains("|end|")) {
+					j++;
 				}
-				else {
-					thorizon.add(new Statement(new Method("|")));
-					callLoop.add(new Statement(new Method("|")));
-				}
+				thorizon.add(new Statement(new Method("|end|")));
+				callLoop.add(new Statement(new Method("|end|")));
 				Statement first=thorizon.remove(0);
 				callLoop.remove(0);
 				StateNode stnode =new StateNode();
@@ -252,8 +316,12 @@ public class KTail implements FSAminer{
 					all_states.add(call_node);
 					stnode.addTransition(new Statement(new Method("call"   + id)), call_node);
 					call_node.addTransition(new Statement(new Method("return" + id)), stnode);
+
 				}
 				last_node=stnode;
+				if (j == horizon) {
+					all_states.add(stnode);
+				}
 			}
 		}
 		FSA fsa=new FSA();
@@ -279,7 +347,6 @@ public class KTail implements FSAminer{
 	/* no loop at call */
 	public FSA transformStrict(ArrayList<Trace> traces) {
 		StateNode root=new StateNode(); 
-		System.out.println(this.toString());
 		HashSet<StateNode> all_states=new HashSet<StateNode>();
 		HashSet<State> initial_states=new HashSet<State>();
 		HashSet<State> final_states=new HashSet<State>();

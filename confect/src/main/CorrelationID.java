@@ -165,7 +165,7 @@ public class CorrelationID {
     
     /* get the correlation coefficient between two events based on ID,
      *  here in the variable Host and Dest in the traces               */
-   private static float coefficientID(String event1, String event2) {
+    private static float coefficientID(String event1, String event2) {
     	String Host1 = "????";
     	String Dest1 = "????";
     	String Host2 = "????";
@@ -186,14 +186,10 @@ public class CorrelationID {
     	if (d2 != -1) {
     		Dest2 = event2.substring(d2 + 5, event2.indexOf(";", d2+5));
     	}
-    	//String[] ID1 = {"192.168.13.1", "????"};
-    	//String[] ID2 = {"????", "192.168.13.1"};
     	String[] ID1 = {Host1, Dest1};
     	String[] ID2 = {Host2, Dest2};
     	Arrays.sort(ID1);
-    	Arrays.sort(ID2);	
-    	//System.out.println(Arrays.toString(ID1) + Arrays.toString(ID2));
-    	//System.out.println(Arrays.equals(ID1, ID2)+ "\n");    	
+    	Arrays.sort(ID2);	 	
     	if (Arrays.equals(ID1, ID2)) {
     		return 1;
     	}
@@ -214,14 +210,10 @@ public class CorrelationID {
     	if (h2 != -1) {
     		role2 = event2.substring(h2 + 5, event2.indexOf(")", h2+5));
     	}
-    	//String[] ID1 = {"192.168.13.1", "????"};
-    	//String[] ID2 = {"????", "192.168.13.1"};
     	String[] ID1 = { role1 };
     	String[] ID2 = { role2 };
     	Arrays.sort(ID1);
-    	Arrays.sort(ID2);	
-    	//System.out.println(Arrays.toString(ID1) + Arrays.toString(ID2));
-    	//System.out.println(Arrays.equals(ID1, ID2)+ "\n");    	
+    	Arrays.sort(ID2);	 	
     	if (Arrays.equals(ID1, ID2)) {
     		return 1;
     	}

@@ -150,16 +150,6 @@ public class ParserDot {
 			}
 			this.nbEtat++;
 		}
-		if(!MainC.hide) {
-			switch(MainC.algo) {
-			case "strong":
-				for(int i = 1; i < finalInt.size(); i++) {
-					bw.write("\"S"+i+"\'\"[label=\"S"+i+"\'\",shape=circle];\n");
-					this.nbEtat++;
-				}
-			}
-		}
-		
 		bw.write("S00 -> S1\n");
 		for(int i = 1; i < finalInt.size(); i++) {
 			ArrayList<String> ar = new ArrayList<String>();
@@ -174,17 +164,6 @@ public class ParserDot {
 						bw.write(ar.get(m)+"\n");
 						this.nbTransition++;
 					}
-				}
-			}
-		}
-		if(!MainC.hide) {
-			switch(MainC.algo) {
-			case "strong":
-				for(int i = 1; i<finalInt.size(); i++) {
-					bw.write("S"+i+" -> \"S"+i+"\'\"[label =\"call_C\"]\n");
-					this.nbTransition++;
-					bw.write("\"S"+i+"\'\" -> S"+i+"[label =\"return_C\"]\n");
-					this.nbTransition++;
 				}
 			}
 		}
