@@ -163,8 +163,45 @@ public class CorrelationID {
     	return res;
     }
     
+    private static float coefficientID(String event1, String event2) {
+    	String idx1 = "????";
+    	String idx2 = "????";
+    	int d1 = event1.indexOf("idx=");
+    	if (d1 != -1) {
+    		if (event1.indexOf("@", d1+4) > 0) {
+    			idx1 = event1.substring(d1 + 4, event1.indexOf("@", d1+4));
+    		}
+    		else {
+    			idx1 = event1.substring(d1 + 4, event1.indexOf(")", d1+4));
+    		}
+    	}
+    	int d2 = event2.indexOf("idx=");
+    	if (d2 != -1) {
+    		if (event2.indexOf("@", d2+4) > 0) {
+    			idx2 = event2.substring(d2 + 4, event2.indexOf("@", d2+4));
+    		}
+    		else {
+    			idx2 = event2.substring(d2 + 4, event2.indexOf(")", d2+4));
+    		}
+    	}
+    	String[] ID1 = {idx1};
+    	String[] ID2 = {idx2};
+    	Arrays.sort(ID1);
+    	Arrays.sort(ID2);	
+    	/*if (!identifiers.contains(Arrays.deepToString(ID1))) {
+    		identifiers.add(Arrays.deepToString(ID1));
+    	}
+    	if (!identifiers.contains(Arrays.deepToString(ID2))) {
+    		identifiers.add(Arrays.deepToString(ID2));
+    	}*/
+    	if (Arrays.equals(ID1, ID2)) {
+    		return 1;
+    	}
+    	return 0;
+    }
+    
     /* get the correlation coefficient between two events based on ID,
-     *  here in the variable Host and Dest in the traces               */
+     *  here in the variable Host and Dest in the traces               
     private static float coefficientID(String event1, String event2) {
     	String Host1 = "????";
     	String Dest1 = "????";
@@ -195,7 +232,7 @@ public class CorrelationID {
     	}
     	return 0;
     }
-    
+    */
     
     /* get the correlation coefficient between two events based on ID,
      *  here in the variable role in the traces               */

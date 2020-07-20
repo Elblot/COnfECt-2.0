@@ -1,0 +1,11 @@
+/core/
+/dataGenerator/
+/evaluation/
+/fsa/
+/main/
+/miners/
+/program/
+/programs/
+/regexp/
+/traces/
+/utils/

@@ -134,8 +134,34 @@ public class Group {
 		}
 		return -9000;
 	}
+	
 
-	/* get the id of a trace, in Host and Dest in the traces */
+	public static String[] GetNumber(ArrayList<String> trace) {
+		String idx = "????";
+		String event = "";
+		int index = 0;
+		while (event == "") {
+			if (trace.get(index).contains("call_") || trace.get(index).contains("return_")) {
+				index++;
+			} else {
+				event = trace.get(index);
+			}
+		}
+		int d = event.indexOf("idx=");
+		if (d != -1) {
+			if (event.indexOf("@", d+4) > 0) {
+    			idx = event.substring(d + 4, event.indexOf("@", d+4));
+    		}
+    		else {
+    			idx = event.substring(d + 4, event.indexOf(")", d+4));
+    		}
+		}
+		String[] ID = {idx};
+		Arrays.sort(ID);
+		return ID;
+	}
+
+	/* get the id of a trace, in Host and Dest in the traces 
 	public static String[] GetNumber(ArrayList<String> trace) {
 		String Host = "????";
 		String Dest = "????";
@@ -159,7 +185,7 @@ public class Group {
 		String[] ID = { Host, Dest };
 		Arrays.sort(ID);
 		return ID;
-	}
+	}*/
 	
 
 	/* get the id, in the variable role in the traces */
