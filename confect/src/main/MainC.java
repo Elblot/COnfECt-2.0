@@ -30,6 +30,25 @@ public class MainC {
 		KtailOptions.setOptions(args);
 		String[] tracesF = getTraces(dir);
 		
+		/* test de FSA.acceptTrace  */
+		KTail instanceTest = new KTail(rank, algo);
+		ArrayList<Trace> tracesTest = new ArrayList<Trace>();
+		for (String fileTest: tracesF) {
+			tracesTest.add(fileToTrace(fileTest)); 
+		}
+		FSA test0 = instanceTest.transform(tracesTest);
+		FSA[] models0 = {test0};
+		String[] tracesATester = getTraces(".");
+		ArrayList<Trace> tracesaTest = new ArrayList<Trace>();
+		//System.out.println(dir);
+		for (String fileTest0: tracesATester) {
+			Trace traceTest = fileToTrace(fileTest0);
+			tracesaTest.add(traceTest);
+			//System.out.println(fileTest0 + " match? : " + test0.accepteTrace(models0, traceTest));
+		}
+		
+		
+		
 		//1st part : correlation
 		final long timeCor1 = System.currentTimeMillis();	
 		/* if want to use correlation factor f2 (frequency) ONLY ONE FACTOR */
@@ -72,6 +91,26 @@ public class MainC {
 				i++;
 			}
 		}
+		
+		int tot=0;
+		int good=0;
+		for (String fileTest0: tracesATester) {
+			tot++;
+			Trace traceTest = fileToTrace(fileTest0);
+			//System.out.println(traceTest.toString());
+			tracesaTest.add(traceTest);
+			//System.out.println(traceTest.toString());
+			System.out.println(fileTest0);
+			if (FSA.accepteTraceConfect(traceTest, models)) {
+				System.out.println("pass");
+				good++;
+			}
+			
+			//System.out.println(fileTest0 + " match? : " + FSA.accepteTraceConfect(traceTest, models));
+		}
+		System.out.println(good + " pass on " + tot);
+		
+		
 		final long timeKTail2 = System.currentTimeMillis();
 		
 		//4th part : parser
